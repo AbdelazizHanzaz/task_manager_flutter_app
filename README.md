@@ -38,6 +38,4 @@
 
 * Connect data providers to `HiveService` for local storage
 
-This covers the key screens and reusable components. We can later add more features like filters, search, settings etc.
 
-Let me know if you would like me to share sample code for any of these UI widgets!
