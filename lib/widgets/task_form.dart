@@ -137,7 +137,7 @@ class _TaskFormWidgetState extends State<TaskFormWidget> {
             onTap: () => _selectDueDate(context),
             child: InputDecorator(
               decoration: const InputDecoration(
-                labelText: 'Due Date',
+                //labelText: 'Due Date',
                 hintText: 'Select due date',
               ),
               isEmpty: _dueDate == null,

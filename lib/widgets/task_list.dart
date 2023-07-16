@@ -21,10 +21,9 @@ class TaskList extends StatelessWidget {
         return TaskCard(
           task: task,
           onMarkAsCompleted: () {
-            // Handle mark as completed action
+             taskProvider.markTaskAsCompleted(task.title);
           },
           onDelete: () {
-            // Handle delete action
             taskProvider.deleteTask(task.title);
           },
         );

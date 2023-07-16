@@ -8,6 +8,8 @@ class TaskProvider with ChangeNotifier {
 
   List<Task> get tasks => _tasks;
 
+   List<Task> get completedTasks => _tasks.where((task) => task.isCompleted).toList();
+
   //get isLoading => _isLoading;
 
   void saveTask(Task task) {
@@ -26,6 +28,11 @@ class TaskProvider with ChangeNotifier {
   void deleteTask(String taskTitle) {
     _tasks.removeWhere((task) => task.title == taskTitle);
     notifyListeners();
+  }
+
+   List<Task> get deletedTasks {
+    //return _tasks.where((task) => task.isDeleted).toList();
+    return _tasks.where((task) => true).toList();
   }
 
   void markTaskAsCompleted(String taskTitle) {

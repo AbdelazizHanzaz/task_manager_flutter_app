@@ -10,18 +10,13 @@ class CreateTaskScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final taskProvider = Provider.of<TaskProvider>(context, listen: false);
 
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Create Task'),
-      ),
-      body: Padding(
+    return  Padding(
         padding: const EdgeInsets.all(16),
         child:
             TaskFormWidget(onSave: (newTask){
               taskProvider.saveTask(newTask);
                Navigator.of(context).pop();
               }),
-      ),
-    );
+      );
   }
 }

@@ -3,7 +3,6 @@ import 'package:provider/provider.dart';
 import 'package:task_manager_flutter_app/data/provider.dart';
 import 'package:task_manager_flutter_app/data/services/hive_service.dart';
 import 'package:task_manager_flutter_app/routes/app_routes.dart';
-import 'package:task_manager_flutter_app/screens/tasks_screen.dart';
 
 
 void main() async{
@@ -33,7 +32,7 @@ class MyApp extends StatelessWidget {
       ),
       //home: const TasksScreen(),
       onGenerateRoute: AppRouters.generateRoute,
-      initialRoute: AppRouters.tasks,
+      initialRoute: AppRouters.home,
     );
   }
 }
