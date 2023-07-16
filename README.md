@@ -1,41 +1,78 @@
-# Task Manager App UI
+# Task Manager Flutter App
 
-## Screens
+This is a task manager app built using Flutter. It allows users to create, view, delete, and complete tasks. The app uses Hive for local data storage and the Provider package for state management.
 
-* **TaskListScreen**
-    * Shows list of tasks
-    * Options to add, edit, mark done
-    * Can filter/sort tasks
-* **TaskDetailScreen**
-    * Shows details of a single task
-    * Options to edit, delete, mark done
-* **EditTaskScreen**
-    * Form to edit details of task
-    * Fields for title, description etc
-* **CategoryScreen**
-    * Shows list of categories
-    * Option to add, edit, delete categories
+## Features
 
-## Reusable Widgets
+- Create new tasks with a title, description, and due date.
+- View a list of tasks, including their title and description.
+- Mark tasks as completed.
+- Delete tasks.
+- View deleted tasks and completed tasks separately.
+- Edit existing tasks.
+- Responsive UI design.
 
-* **TaskTile**
-    * Renders task title, due date, status
-* **CategoryTile**
-    * Renders category name and color
-* **TaskForm**
-    * Reusable form for editing task details
-* **PriorityPicker**
-    * Allows selecting priority
-* **DatePicker**
-    * Standard date picker widget
+## Screenshots
 
-## State Management
+Include screenshots or GIFs showcasing the UI and functionality of your app.
 
-* Use `provider` package for state management
-* Maintain `TaskListProvider` and `CategoryProvider`
+## Installation
 
-## Persistence
+1. Clone the repository to your local machine.
 
-* Connect data providers to `HiveService` for local storage
+2. Open the project in your preferred code editor.
+
+3. Run the following command to install the dependencies: flutter pub get
+
+4. Connect your device or emulator.
+
+5. Run the app using the following command: flutter run
+
+
+## Dependencies
+
+- hive: 
+- hive_flutter:
+- path_provider:
+- provider:
+
+## Dev Dependencies
+
+- hive_generator:
+- build_runner:
+
+## Usage
+
+To use this app, follow these steps:
+
+1. Open the app on your device or emulator.
+
+2. Create a new task by tapping on the "+" button.
+
+3. Fill in the task details such as title, description, and due date.
+
+4. Save the task.
+
+5. View the list of tasks on the home screen.
+
+6. Tap on a task to view its details.
+
+7. Mark a task as completed by tapping on the checkbox.
+
+8. Delete a task by swiping it to the right.
+
+9. Access the deleted tasks and completed tasks screens from the bottom navigation bar.
+
+10. Edit a task by tapping on the edit icon.
+
+11. Customize the app further by modifying the code to fit your requirements.
+
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+
+
 
 
