@@ -15,7 +15,9 @@ This is a task manager app built using Flutter. It allows users to create, view,
 ## Screenshots
 
 ![Screenshot 1](./screenshots/1.jpg)
-![Screenshot 1](./screenshots/2.jpg)
+![Screenshot 2](./screenshots/2.jpg)
+![Screenshot 3](./screenshots/3.jpg)
+![Screenshot 4](./screenshots/4.jpg)
 
 ## Installation
 
