@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../data/models/task_model.dart';
-import '../widgets/task_details.dart';
+import 'widgets/task_details.dart';
 
 class TaskDetailsScreen extends StatelessWidget {
   final Task task;

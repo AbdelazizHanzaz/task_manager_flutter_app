@@ -1,6 +1,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:task_manager_flutter_app/screens/completed_tasks_screen.dart';
 import 'package:task_manager_flutter_app/screens/deleted_tasks_screen.dart';
 
 import '../screens/tasks_screen.dart';
@@ -16,7 +17,7 @@ class ScreenUtils {
       case 0:
         return const TasksScreen();
       case 1:
-        return Container();
+        return const CompletedTasksScreen();
       case 2:
         return const DeletedTasksScreen();
       default:

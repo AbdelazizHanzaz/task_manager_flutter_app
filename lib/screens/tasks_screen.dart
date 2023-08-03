@@ -1,6 +1,8 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:task_manager_flutter_app/widgets/task_list.dart';
+import 'package:task_manager_flutter_app/screens/widgets/task_list.dart';
 
 import '../data/provider.dart';
 
@@ -10,13 +12,17 @@ class TasksScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final taskProvider = Provider.of<TaskProvider>(context);
-    final tasks = taskProvider.tasks;
-    //final isLoading = taskProvider.isLoading;
+    taskProvider.fetchTasks();
+  
 
-    return tasks.isNotEmpty
-          ? TaskList(tasks: tasks)
-          : const Center(
-              child: Text('No tasks yet. Add a task to get started.'),
-            );
+    return taskProvider.taskDataState == TaskDataState.loading
+          ? const Center(child: CircularProgressIndicator(),)
+          : taskProvider.taskDataState == TaskDataState.empty 
+          ? const Center(child: Text("No tasks available"))
+          : taskProvider.taskDataState == TaskDataState.error
+          ? const Center(child: Text("Fetching tasks failed!"))
+          : TaskList(tasks: taskProvider.noCompletedTasks);
+    
+              
   }
 }

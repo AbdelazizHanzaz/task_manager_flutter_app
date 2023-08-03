@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:hive/hive.dart';
 import 'package:path_provider/path_provider.dart' as path_provider;
 
@@ -22,9 +24,11 @@ class HiveService {
     return await box.add(task);
   }
 
-  Future<void> updateTask(Task task) async {
-    final box = await openTaskBox();
-    await box.put(task.key, task);
+  Future<void> updateTask(Task updatedTask, dynamic key) async {
+    final tasksBox = await openTaskBox();
+  if (key != -1) {
+    tasksBox.putAt(key, updatedTask);
+  }
   }
 
   Future<void> deleteTask(Task task) async {
@@ -32,19 +36,20 @@ class HiveService {
     await box.delete(task.key);
   }
 
+  Future<void> softDeleteTask(Task task, bool isDeleted) async {
+    final box = await openTaskBox();
+    task.isDeleted = isDeleted;
+    await box.put(task.key, task);
+  }
+
   Future<List<Task>> getAllTasks() async {
     final box = await openTaskBox();
     return box.values.toList();
   }
 
-  //   Future<Task> getTaskById(int taskId) async {
-  //   final box = await openTaskBox();
-  //   return box.get(taskId);
-  // }
-
-  Future<void> markTaskAsCompleted(Task task) async {
+  Future<void> markTask(Task task, bool isCompleted) async {
     final box = await openTaskBox();
-    task.isCompleted = true;
+    task.isCompleted = isCompleted;
     await box.put(task.key, task);
   }
 

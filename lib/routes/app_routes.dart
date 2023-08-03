@@ -2,8 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:task_manager_flutter_app/data/models/task_model.dart';
-import 'package:task_manager_flutter_app/screens/create_task_screen.dart';
-import 'package:task_manager_flutter_app/screens/edit_task_screen.dart';
 import 'package:task_manager_flutter_app/screens/home_screen.dart';
 import 'package:task_manager_flutter_app/screens/task_details_screen.dart';
 import 'package:task_manager_flutter_app/screens/tasks_screen.dart';
@@ -25,11 +23,6 @@ class AppRouters {
         return MaterialPageRoute(builder: (_) => const HomeScreen());
       case tasks:
         return MaterialPageRoute(builder: (_) => const TasksScreen());
-      case createTask:
-        return MaterialPageRoute(builder: (_) => const CreateTaskScreen());
-      case editTask:
-        final taskToEdit = settings.arguments as Task;
-        return MaterialPageRoute(builder: (_) => EditTaskScreen(taskToEdit: taskToEdit));
       case taskDetails:
         final task = settings.arguments as Task;
         return MaterialPageRoute(builder: (_) => TaskDetailsScreen(task: task));

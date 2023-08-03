@@ -1,33 +1,28 @@
 
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:task_manager_flutter_app/screens/widgets/task_list.dart';
 
 import '../data/provider.dart';
-import '../widgets/task_widget.dart';
 
 class CompletedTasksScreen extends StatelessWidget {
   const CompletedTasksScreen({super.key});
 
-  @override
+ @override
   Widget build(BuildContext context) {
     final taskProvider = Provider.of<TaskProvider>(context);
-    final completedTasks = taskProvider.completedTasks;
-
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Completed Tasks'),
-      ),
-      body: completedTasks.isEmpty
-          ? const Center(
-              child: Text('No completed tasks.'),
-            )
-          : ListView.builder(
-              itemCount: completedTasks.length,
-              itemBuilder: (context, index) {
-                final task = completedTasks[index];
-                return TaskWidget(task: task, taskColor: Colors.blue.shade200,);
-              },
-            ),
-    );
+    taskProvider.fetchTasks();
+  
+    return taskProvider.taskDataState == TaskDataState.loading
+          ? const Center(child: CircularProgressIndicator(),)
+          : taskProvider.taskDataState == TaskDataState.empty 
+          ? const Center(child: Text("No tasks available"))
+          : taskProvider.taskDataState == TaskDataState.error
+          ? const Center(child: Text("Fetching tasks failed!"))
+          : TaskList(tasks: taskProvider.completedTasks);
+    
+              
   }
 }

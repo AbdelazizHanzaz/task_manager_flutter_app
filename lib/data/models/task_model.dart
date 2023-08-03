@@ -17,11 +17,14 @@ class Task extends HiveObject {
 
   @HiveField(3)
   late bool isCompleted;
-
+  
+  @HiveField(4)
+  late bool isDeleted;
   Task({
     required this.title,
     required this.description,
     required this.dueDate,
     this.isCompleted = false,
+    this.isDeleted = false,
   });
 }
